@@ -1,0 +1,25 @@
+[package]
+name = "raftkv"
+version = "0.1.0"
+edition = "2021"
+description = "A small, fault-tolerant, linearizable key-value store on Raft, over gRPC"
+
+[dependencies]
+clap = { version = "4", features = ["derive"] }
+crc32fast = "1"
+hdrhistogram = "7"
+libc = "0.2"
+prost = "0.14"
+rand = "0.8"
+tempfile = "3"
+tokio = { version = "1", features = ["macros", "rt-multi-thread", "sync", "time", "net"] }
+tokio-stream = { version = "0.1", features = ["net"] }
+tonic = "0.14"
+tonic-prost = "0.14"
+
+[build-dependencies]
+protoc-bin-vendored = "3"
+tonic-prost-build = "0.14"
+
+[profile.release]
+debug = 1
